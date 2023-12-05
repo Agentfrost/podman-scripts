@@ -13,7 +13,7 @@ function help() {
 }
 
 function init() {
-	podman pod create --name cassandra &&
+	podman pod create --name cassandra -p 9042:9042 &&
 		podman volume create cassandra-server-1-volume &&
 		podman run --name cassandra-server-1 --pod cassandra -v cassandra-server-1-volume:/var/lib/cassandra -d docker.io/cassandra:5
 }
