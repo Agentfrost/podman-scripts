@@ -20,7 +20,7 @@ function init() {
 		podman run --name superset --pod superset-eval -e SUPERSET_SECRET_KEY="secret_key" -d docker.io/apache/superset &&
 		podman exec -it superset superset fab create-admin --username admin --firstname Superset --lastname Admin --email admin@superset.com --password admin &&
 		podman exec -it superset superset db upgrade &&
-		podman exec -it superset superset load_examples &&
+		# podman exec -it superset superset load_examples &&
 		podman exec -it superset superset init &&
 		podman exec -it superset bash -c "pip install psycopg2-binary"
 }
